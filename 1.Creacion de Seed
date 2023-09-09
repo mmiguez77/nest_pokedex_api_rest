@@ -1,0 +1,21 @@
+
+// Crear SEED.
+Sirve para precargar la db.
+
+localhost/api/v2/seed -> GET
+
+· Crear recursos.
+nest g res seed --no-spec
+? What transport layer do you use? REST API
+? Would you like to generate CRUD entry points? Yes
+
+· Es preferible crear todos los recursos y luego eliminar aquellos que no usemos.
+· Vamos a generar la semilla con la api de Pokemon usando Axios.
+· Usando la url https://pokeapi.co/api/v2/pokemon?limit=500, vamos a genera lo necesario para completar nuestra DB.
+· Generamos la función asíncrona: 
+	async executeSeed() {
+		const { data } = await this.axios.get('https://pokeapi.co/api/v2/pokemon?limit=500');
+		return data.result;
+	}
+	- comprobamos que nos regresa la información correspondiente a los 500 pokemons.
+
