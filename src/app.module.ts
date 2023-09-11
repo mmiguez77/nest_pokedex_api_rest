@@ -6,10 +6,13 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { CommonModule } from './common/common.module';
 import { SeedModule } from './seed/seed.module';
+import { EnvConfiguration } from './config/env.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      load: [ EnvConfiguration ] // se agrega nombre de const de variables entorno para poder usarlas
+    }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname,'..','public'),
     }),
