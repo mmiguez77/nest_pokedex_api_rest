@@ -36,3 +36,6 @@ http://localhost:3000/api/v2/seed
 ## STACK
 Mongo
 Nest
+
+# Production Build
+A. Crear el archivo __.env.prod__ y completar las variables de entorno para PROD
